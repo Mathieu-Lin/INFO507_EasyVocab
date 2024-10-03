@@ -1,4 +1,4 @@
-package com.example.easyvocab
+package activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
