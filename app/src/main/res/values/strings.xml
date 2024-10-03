@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">EasyVocab</string>
+    <string name="difficulty">Difficulté</string>
+    <string name="easy">Facile</string>
+    <string name="moyen">Moyen</string>
+    <string name="hard">Diificile</string>
+    <string name="easyvocab">EasyVocab</string>
+    <string name="touch_to_start">Touchez pour démarrer</string>
 </resources>
