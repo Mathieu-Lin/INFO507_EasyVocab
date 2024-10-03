@@ -8,11 +8,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.easyvocab.R
 
-class ENDifficultyActivity : ComponentActivity() {
+class QuestionActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_endifficulty)
-
-        //val buttonEasy = findViewById<>()
+        setContentView(R.layout.activity_question)
     }
 }
