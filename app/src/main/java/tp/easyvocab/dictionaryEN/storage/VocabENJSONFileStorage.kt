@@ -1,9 +1,9 @@
-package dictionaryEN.storage
+package tp.easyvocab.dictionaryEN.storage
 
 import android.content.Context
 import org.json.JSONObject
-import dictionaryEN.model.VocabEN
-import storage.utility.file.JSONFileStorage
+import tp.easyvocab.dictionaryEN.model.VocabEN
+import tp.easyvocab.storage.utility.file.JSONFileStorage
 
 class VocabENJSONFileStorage(context: Context): JSONFileStorage<VocabEN>(context, "card") {
 

@@ -1,4 +1,4 @@
-package dictionaryEN.model
+package tp.easyvocab.dictionaryEN.model
 
 class VocabEN(val id: Int, val value: String) {
     companion object {

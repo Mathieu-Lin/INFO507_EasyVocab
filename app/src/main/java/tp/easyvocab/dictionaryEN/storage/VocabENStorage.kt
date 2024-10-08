@@ -1,13 +1,13 @@
 import android.content.Context
 import android.content.SharedPreferences
-import dictionaryEN.model.VocabEN
-import dictionaryEN.storage.VocabENJSONFileStorage
-import dictionaryEN.storage.VocabENNoneStorage
-import storage.Storage
+import tp.easyvocab.dictionaryEN.model.VocabEN
+import tp.easyvocab.dictionaryEN.storage.VocabENJSONFileStorage
+import tp.easyvocab.dictionaryEN.storage.VocabENNoneStorage
+import tp.easyvocab.storage.Storage
 
 object VocabENStorage {
     private const val LOGIN = "login"
-    private const val STORAGE = "storage"
+    private const val STORAGE = "tp/easyvocab/storage"
     const val NONE = 0
     const val DATA_BASE = 1
     const val FILE_JSON = 2

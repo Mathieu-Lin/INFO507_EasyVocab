@@ -1,4 +1,4 @@
-package storage
+package tp.easyvocab.storage
 
 interface Storage<T> {
     fun insert(obj: T): Int

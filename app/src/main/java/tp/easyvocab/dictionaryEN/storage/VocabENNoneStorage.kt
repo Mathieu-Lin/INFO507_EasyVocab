@@ -1,7 +1,7 @@
-package dictionaryEN.storage
+package tp.easyvocab.dictionaryEN.storage
 
-import dictionaryEN.model.VocabEN
-import storage.Storage
+import tp.easyvocab.dictionaryEN.model.VocabEN
+import tp.easyvocab.storage.Storage
 
 class VocabENNoneStorage: Storage<VocabEN> {
     override fun insert(obj: VocabEN): Int = 0

@@ -1,7 +1,7 @@
-package storage.utility.file
+package tp.easyvocab.storage.utility.file
 
 import android.content.Context
-import storage.Storage
+import tp.easyvocab.storage.Storage
 import java.io.BufferedReader
 import java.io.FileNotFoundException
 import java.io.InputStreamReader

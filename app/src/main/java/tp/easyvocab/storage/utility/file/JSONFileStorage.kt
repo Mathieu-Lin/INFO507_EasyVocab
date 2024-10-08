@@ -1,4 +1,4 @@
-package storage.utility.file
+package tp.easyvocab.storage.utility.file
 
 import android.content.Context
 import org.json.JSONObject
