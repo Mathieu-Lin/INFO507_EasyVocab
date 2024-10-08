@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="activity.QuestionActivity">
+    tools:context="EasyVocab.activity.QuestionActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,30 +15,34 @@
         android:layout_margin="30dp">
 
         <TextView
+            android:id="@+id/question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Question"
+            android:text="@string/question"
             android:textSize="60sp"
             android:paddingBottom="30dp"/>
 
         <Button
+            android:id="@+id/option1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="reponse 1"
+            android:text="@string/reponse_1"
             android:textSize="40sp"
             android:layout_margin="25dp"/>
 
         <Button
+            android:id="@+id/option2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="reponse 2"
+            android:text="@string/reponse_2"
             android:textSize="40sp"
             android:layout_margin="25dp"/>
 
         <Button
+            android:id="@+id/option3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="reponse 3"
+            android:text="@string/reponse_3"
             android:textSize="40sp"
             android:layout_margin="25dp"/>
 

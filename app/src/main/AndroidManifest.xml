@@ -13,10 +13,10 @@
         android:theme="@style/Theme.EasyVocab"
         tools:targetApi="31">
         <activity
-            android:name="activity.QuestionActivity"
+            android:name="EasyVocab.activity.QuestionActivity"
             android:exported="false" />
         <activity
-            android:name="activity.MainActivity"
+            android:name="EasyVocab.activity.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.EasyVocab">
@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="activity.ENDifficultyActivity"
+            android:name="EasyVocab.activity.ENDifficultyActivity"
             android:exported="false" />
     </application>
 

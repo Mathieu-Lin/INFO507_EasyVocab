@@ -6,4 +6,8 @@
     <string name="hard">Diificile</string>
     <string name="easyvocab">EasyVocab</string>
     <string name="touch_to_start">Touchez pour démarrer</string>
+    <string name="question">Question</string>
+    <string name="reponse_1">Reponse 1</string>
+    <string name="reponse_2">Reponse 2</string>
+    <string name="reponse_3">Reponse 3</string>
 </resources>
