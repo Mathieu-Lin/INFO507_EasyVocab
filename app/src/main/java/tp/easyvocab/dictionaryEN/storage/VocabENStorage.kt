@@ -13,7 +13,7 @@ object VocabENStorage {
     const val FILE_JSON = 2
 
     private fun getPreferences(context: Context): SharedPreferences {
-        return context.getSharedPreferences("td.info507.MyPPoker2.preferences", Context.MODE_PRIVATE)
+        return context.getSharedPreferences("tp.easyvocab.preferences", Context.MODE_PRIVATE)
     }
 
     fun getLogin(context: Context): String? {
@@ -36,7 +36,7 @@ object VocabENStorage {
         var storage: Storage<VocabEN> = VocabENNoneStorage()
         when (getStorage(context)) {
             NONE -> storage = VocabENNoneStorage()
-            // DATA_BASE -> storage = CardDataBaseStorage(context)
+            // DATA_BASE -> storage = VocabENDataBaseStorage(context)
             FILE_JSON -> storage = VocabENJSONFileStorage(context)
         }
         return storage

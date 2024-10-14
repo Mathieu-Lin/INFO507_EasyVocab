@@ -5,13 +5,13 @@
     <string name="dialog_confirm">Confirm</string>
     <string name="dialog_cancel">Cancel</string>
 
-    <string name="card_value">Valeur :</string>
-    <string name="card_description">Description :</string>
-    <string name="card_color">Couleur :</string>
+    <string name="vocabEN_value">Texte :</string>
 
     <string name="profile_login">Pseudo :</string>
     <string name="storage_none">Storage None</string>
     <string name="storage_data_base">Data base</string>
     <string name="storage_file_json">JSON</string>
 
+    <string name="success">Les vocabulaires ont bien été récupérées</string>
+    <string name="error">Les vocabulaires n\'ont pas été récupéré\n</string>
 </resources>

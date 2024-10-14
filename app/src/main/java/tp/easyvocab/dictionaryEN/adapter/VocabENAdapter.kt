@@ -2,6 +2,7 @@ package tp.easyvocab.dictionaryEN.adapter
 
 import tp.easyvocab.R
 import tp.easyvocab.dictionaryEN.model.VocabEN
+import tp.easyvocab.dictionaryEN.storage.*
 import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -12,7 +13,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-abstract class VocabENAdapter(private val context: Context, private var vocabList: List<VocabEN>) :
+abstract class VocabENAdapter(private val context: Context,  private var data: List<VocabEN> = emptyList()): RecyclerView.Adapter<VocabENAdapter.VocabENHolder>() {
     class VocabENHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val value: TextView = itemView.findViewById(R.id.VocabEN_value)
     }
@@ -34,13 +35,17 @@ abstract class VocabENAdapter(private val context: Context, private var vocabLis
     }
 
     override fun onBindViewHolder(holder: VocabENHolder, position: Int) {
-        val card = VocabENStorage.get(context).findAll()[position]
-        holder.itemView.tag = card.id
-
-        holder.value.text = card.value
+        val vocabEN = VocabENStorage.get(context).findAll()[position]
+        holder.itemView.tag = vocabEN.id
+        holder.value.text = vocabEN.value
     }
 
     override fun getItemCount(): Int {
         return VocabENStorage.get(context).size()
     }
+
+
+
 }
+
+

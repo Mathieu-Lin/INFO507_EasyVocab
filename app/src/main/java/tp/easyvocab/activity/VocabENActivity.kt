@@ -17,10 +17,10 @@ class VocabENActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_endictionary)
 
-        val id = intent.getIntExtra(MainActivity.EXTRA_CARD, 0)
-        val card = VocabENStorage.get(applicationContext).find(id)
+        val id = intent.getIntExtra(MainActivity.EXTRA_VOCAB, 0)
+        val vocabEN = VocabENStorage.get(applicationContext).find(id)
 
-        findViewById<TextView>(R.id.VocabEN_value_insert).text = card?.value
+        findViewById<TextView>(R.id.VocabEN_value_insert).text = vocabEN?.value
     }
 //    private lateinit var adapter: VocabENAdapter
 //    private lateinit var vocabList: RecyclerView

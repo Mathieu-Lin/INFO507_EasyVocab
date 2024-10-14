@@ -5,7 +5,7 @@ import org.json.JSONObject
 import tp.easyvocab.dictionaryEN.model.VocabEN
 import tp.easyvocab.storage.utility.file.JSONFileStorage
 
-class VocabENJSONFileStorage(context: Context): JSONFileStorage<VocabEN>(context, "card") {
+class VocabENJSONFileStorage(context: Context): JSONFileStorage<VocabEN>(context, "vocabEN") {
 
     override fun create(id: Int,obj: VocabEN): VocabEN {
         return VocabEN(id, obj.value)

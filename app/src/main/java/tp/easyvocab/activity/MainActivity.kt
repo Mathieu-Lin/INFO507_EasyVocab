@@ -2,24 +2,21 @@ package tp.easyvocab.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import android.widget.Button
-import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import tp.easyvocab.R
 import tp.easyvocab.dictionaryEN.adapter.VocabENAdapter
+import tp.easyvocab.dictionaryEN.request.VocabENRequest
 
-class MainActivity : ComponentActivity() {
+class MainActivity : Updatable, AppCompatActivity() {
     companion object {
-        const val EXTRA_CARD = "EXTRA_CARD"
+        const val EXTRA_VOCAB = "EXTRA_VOCAB"
     }
 
     private lateinit var list: RecyclerView
-
+    private lateinit var refresh: SwipeRefreshLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,9 +26,9 @@ class MainActivity : ComponentActivity() {
         list.adapter = object: VocabENAdapter(applicationContext) {
             override fun onClickListener(view: View) {
                 var intent = Intent(applicationContext, VocabENActivity::class.java).apply{
-                    putExtra(EXTRA_CARD, view.tag as Int)
+                    putExtra(EXTRA_VOCAB, view.tag as Int)
                     // on ajoute les informations à l'intention
-                    // on donne l'id de la card ciblée
+                    // on donne l'id de la vocabulaire ciblée
                 }
                 startActivity(intent)
             }
@@ -40,7 +37,23 @@ class MainActivity : ComponentActivity() {
                 VocabENStorage.get(applicationContext).delete(view.tag as Int)
                 return true
             }
+
+        }
+
+
+        refresh = findViewById(R.id.VocabEN_refresh)
+        findViewById<SwipeRefreshLayout>(R.id.VocabEN_refresh).setOnRefreshListener {
+            VocabENRequest(applicationContext, this)
+            update()
         }
 
     }
+
+
+    override fun update() {
+        list.adapter?.notifyDataSetChanged()
+        refresh.isRefreshing = false
+    }
+
+
 }
