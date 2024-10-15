@@ -26,7 +26,7 @@ class QuestionActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
         val idDifficulty = intent.getIntExtra(QuestionActivity.DIFFICULTY, 1)
-        val idQuestion = intent.getIntExtra(QuestionActivity.QUESTION, 1)
+        val idQuestion = intent.getIntExtra(QuestionActivity.QUESTION, 0)
         val serie = QuestionSerieStorage.get(applicationContext).find(idDifficulty)
         val question = serie?.questions?.get(idQuestion)
         var score = intent.getIntExtra(QuestionActivity.SCORE, 0)
@@ -90,19 +90,25 @@ class QuestionActivity : ComponentActivity() {
     }
 
     private fun toNextQuestion(idDifficulty: Int, idQuestion:Int, score : Int) {
-        if (idQuestion < 10) {
-            val intent = Intent(applicationContext, QuestionActivity::class.java)
+        val nextQuestion = findViewById<LinearLayout>(R.id.nextQuestionLayout)
+        nextQuestion.visibility = View.VISIBLE
+        var intent : Intent
+        if (idQuestion < 9) {
+            intent = Intent(applicationContext, QuestionActivity::class.java)
             intent.apply {
                 putExtra(DIFFICULTY, idDifficulty)
                 putExtra(QUESTION, idQuestion+1)
                 putExtra(SCORE, score)
             }
-
-            var nextQuestion = findViewById<LinearLayout>(R.id.nextQuestionLayout)
-            nextQuestion.visibility = View.VISIBLE
-            nextQuestion.setOnClickListener {
-                startActivity(intent)
+        } else {
+            intent = Intent(applicationContext, ScoreActivity::class.java)
+            intent.apply {
+                putExtra(DIFFICULTY, idDifficulty)
+                putExtra(SCORE, score)
             }
+        }
+        nextQuestion.setOnClickListener {
+            startActivity(intent)
         }
     }
 }
