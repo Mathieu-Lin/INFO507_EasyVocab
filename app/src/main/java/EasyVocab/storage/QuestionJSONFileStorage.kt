@@ -11,19 +11,38 @@ class QuestionJSONFileStorage(context: Context): JSONFileStorage<QuestionSerie>(
     override fun create(id: Int,obj: QuestionSerie): QuestionSerie {
         return QuestionSerie(id, obj.questions, obj.bestScore)
     }
+
+    fun questionToJson(question: Question): JSONObject {
+        val jsonObject = JSONObject()
+        jsonObject.put("id", question.id)
+        jsonObject.put("question", question.question)
+        jsonObject.put("option1", question.option1)
+        jsonObject.put("option2", question.option2)
+        jsonObject.put("option3", question.option3)
+        jsonObject.put("reponse", question.reponse)
+        return jsonObject
+    }
+
     override fun objectToJson(id: Int, obj: QuestionSerie): JSONObject {
-        val json = JSONObject()
-        json.put(QuestionSerie.ID, obj.id)
-        json.put(QuestionSerie.QUESTIONS, obj.questions)
-        json.put(QuestionSerie.BESTSCORE, obj.bestScore)
-        return json
+        val jsonObject = JSONObject()
+        jsonObject.put("id", obj.id)
+
+        // Convertir la liste de questions en JSONArray
+        val questionsJsonArray = JSONArray()
+        for (question in obj.questions) {
+            questionsJsonArray.put(questionToJson(question))
+        }
+
+        jsonObject.put("questions", questionsJsonArray)
+        jsonObject.put("bestScore", obj.bestScore)
+        return jsonObject
     }
     override fun jsonToObject(json: JSONObject): QuestionSerie {
-        val jsonarray = json.getJSONArray(QuestionSerie.QUESTIONS)
+        val jsonArray = json.getJSONArray(QuestionSerie.QUESTIONS)
         val questions = mutableListOf<Question>()
-        for (i in 0 until jsonarray.length()) {
-            val question = getQuestion(jsonarray.getJSONObject(i))
-            questions.add(i, question)
+        for (i in 0 until jsonArray.length()) {
+            val question = getQuestion(jsonArray.getJSONObject(i))
+            questions.add(question)
         }
 
         return QuestionSerie(

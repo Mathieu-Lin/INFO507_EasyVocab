@@ -7,7 +7,6 @@ import android.content.Context
 object QuestionSerieStorage {
 
     fun get(context: Context): Storage<QuestionSerie> {
-        val storage: Storage<QuestionSerie> = QuestionJSONFileStorage(context)
-        return storage
+        return QuestionJSONFileStorage(context)
     }
 }
