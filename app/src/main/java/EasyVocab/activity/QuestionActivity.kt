@@ -92,7 +92,7 @@ class QuestionActivity : ComponentActivity() {
     private fun toNextQuestion(idDifficulty: Int, idQuestion:Int, score : Int) {
         val nextQuestion = findViewById<LinearLayout>(R.id.nextQuestionLayout)
         nextQuestion.visibility = View.VISIBLE
-        var intent : Intent
+        val intent : Intent
         if (idQuestion < 9) {
             intent = Intent(applicationContext, QuestionActivity::class.java)
             intent.apply {

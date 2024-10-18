@@ -1,8 +1,10 @@
 package EasyVocab.activity
 
+import EasyVocab.storage.QuestionSerieStorage
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +20,11 @@ class ENDifficultyActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_endifficulty)
 
+        setButtons()
+        setScores()
+    }
+
+    private fun setButtons() {
         val intent = Intent(applicationContext, QuestionActivity::class.java)
         val buttonEasy = findViewById<Button>(R.id.ENEasy)
         buttonEasy.setOnClickListener{
@@ -41,5 +48,24 @@ class ENDifficultyActivity : ComponentActivity() {
             }
             startActivity(intent)
         }
+    }
+
+    private fun setScores() {
+        val scoreEasy = findViewById<TextView>(R.id.scoreEasy)
+        val scoreMoyen = findViewById<TextView>(R.id.scoreMoyen)
+        val scoreHard = findViewById<TextView>(R.id.scoreHard)
+
+        var score = getScore(1)
+        scoreEasy.text = "Best : $score"
+
+        score = getScore(2)
+        scoreMoyen.text = "Best : $score"
+
+        score = getScore(3)
+        scoreHard.text = "Best : $score"
+    }
+
+    fun getScore(id: Int) : Int? {
+        return QuestionSerieStorage.get(applicationContext).find(id)?.bestScore
     }
 }

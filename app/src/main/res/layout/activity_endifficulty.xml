@@ -11,8 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center"
-        android:layout_margin="30dp">
+        android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
@@ -21,29 +20,77 @@
             android:textSize="60sp"
             android:paddingBottom="30dp"/>
 
-        <Button
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ENEasy"
-            android:text="@string/easy"
-            android:textSize="40sp"
-            android:layout_margin="25dp"/>
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/ENMoyen"
-            android:text="@string/moyen"
-            android:textSize="40sp"
-            android:layout_margin="25dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ENEasy"
+                android:text="@string/easy"
+                android:textSize="40sp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginStart="25dp"/>
 
-        <Button
+            <TextView
+                android:id="@+id/scoreEasy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ENMoyen"
+                android:text="@string/moyen"
+                android:textSize="40sp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginStart="25dp"/>
+
+            <TextView
+                android:id="@+id/scoreMoyen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ENHard"
-            android:text="@string/hard"
-            android:textSize="40sp"
-            android:layout_margin="25dp"/>
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ENHard"
+                android:text="@string/hard"
+                android:textSize="40sp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginStart="25dp"/>
+
+            <TextView
+                android:id="@+id/scoreHard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -1,8 +1,10 @@
 package EasyVocab.activity
 
 import EasyVocab.storage.QuestionSerieStorage
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
@@ -14,8 +16,16 @@ class ScoreActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_score)
-        val idDifficulty = intent.getIntExtra(QuestionActivity.DIFFICULTY, 1)
+
         val score = intent.getIntExtra(QuestionActivity.SCORE, 0)
+        val idDifficulty = intent.getIntExtra(QuestionActivity.DIFFICULTY, 1)
+
+        displayScore(score)
+        updateScore(idDifficulty, score)
+        setActivity()
+    }
+
+    private fun displayScore(score : Int) {
         val congratsView = findViewById<TextView>(R.id.congrats)
         val scoreView = findViewById<TextView>(R.id.score)
 
@@ -34,7 +44,9 @@ class ScoreActivity : ComponentActivity() {
         } else {
             congratsView.text = "Même pas un seul point ??"
         }
+    }
 
+    private fun updateScore(idDifficulty : Int, score : Int) {
         if (QuestionSerieStorage.get(applicationContext).find(idDifficulty)?.bestScore!! < score) {
             findViewById<TextView>(R.id.bestScore).visibility = View.VISIBLE
             val questionSerie = QuestionSerieStorage.get(applicationContext).find(idDifficulty)
@@ -42,6 +54,13 @@ class ScoreActivity : ComponentActivity() {
                 questionSerie.bestScore = score
                 QuestionSerieStorage.get(applicationContext).update(idDifficulty, questionSerie)
             }
+        }
+    }
+
+    private fun setActivity() {
+        val scoreScreen = findViewById<LinearLayout>(R.id.scoreScreen)
+        scoreScreen.setOnClickListener {
+            startActivity(Intent(applicationContext, ENDifficultyActivity::class.java))
         }
     }
 }

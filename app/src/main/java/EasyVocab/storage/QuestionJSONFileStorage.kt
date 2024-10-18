@@ -12,7 +12,7 @@ class QuestionJSONFileStorage(context: Context): JSONFileStorage<QuestionSerie>(
         return QuestionSerie(id, obj.questions, obj.bestScore)
     }
 
-    fun questionToJson(question: Question): JSONObject {
+    private fun questionToJson(question: Question): JSONObject {
         val jsonObject = JSONObject()
         jsonObject.put("id", question.id)
         jsonObject.put("question", question.question)
