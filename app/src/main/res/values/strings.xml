@@ -13,4 +13,7 @@
     <string name="touch_to_continue">Touchez pour continuer</string>
     <string name="your_score">Ton score :</string>
     <string name="new_best">Nouveau record !</string>
+
+    <string name="success">Les vocabulaires ont bien été récupérées</string>
+    <string name="error">Les vocabulaires n\'ont pas été récupérées\n</string>
 </resources>
