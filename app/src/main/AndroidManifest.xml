@@ -12,13 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EasyVocab"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
             android:name="easyvocab.activity.ScoreActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name="easyvocab.activity.QuestionActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name="easyvocab.activity.MainActivity"
             android:exported="true"
@@ -31,13 +32,14 @@
         </activity>
         <activity
             android:name="easyvocab.activity.ENDifficultyActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name="easyvocab.activity.ENDictionaryActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name="easyvocab.activity.VocabActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:parentActivityName="easyvocab.activity.ENDictionaryActivity"/>
     </application>
 
 </manifest>

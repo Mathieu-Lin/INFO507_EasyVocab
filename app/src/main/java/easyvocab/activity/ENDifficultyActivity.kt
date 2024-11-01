@@ -37,7 +37,7 @@ class ENDifficultyActivity : ComponentActivity() {
                     val deltaX = e2.x - e1.x
                     val deltaY = e2.y - e1.y
                     // Détecte un swipe vers le haut
-                    if (Math.abs(deltaY) > Math.abs(deltaX) && deltaY < -100) { // Swipe vers le haut
+                    if (Math.abs(deltaY) > Math.abs(deltaX) && deltaY < -5) { // Swipe vers le haut
                         goToDictionaryActivity()
                         return true
                     }
@@ -46,6 +46,7 @@ class ENDifficultyActivity : ComponentActivity() {
             }
         })
     }
+
 
     private fun setButtons() {
         val intent = Intent(applicationContext, QuestionActivity::class.java)
