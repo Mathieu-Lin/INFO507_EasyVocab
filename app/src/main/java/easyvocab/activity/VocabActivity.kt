@@ -1,6 +1,6 @@
-package EasyVocab.activity
+package easyvocab.activity
 
-import EasyVocab.storage.VocabENStorage
+import easyvocab.storage.VocabENStorage
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity

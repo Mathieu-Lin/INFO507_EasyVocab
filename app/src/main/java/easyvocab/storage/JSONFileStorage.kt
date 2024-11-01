@@ -1,4 +1,4 @@
-package EasyVocab.storage
+package easyvocab.storage
 
 import android.content.Context
 import org.json.JSONObject

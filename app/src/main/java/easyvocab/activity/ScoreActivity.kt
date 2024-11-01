@@ -1,15 +1,12 @@
-package EasyVocab.activity
+package easyvocab.activity
 
-import EasyVocab.storage.QuestionSerieStorage
+import easyvocab.storage.QuestionSerieStorage
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.ComponentActivity
-import androidx.activity.enableEdgeToEdge
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.easyvocab.R
 
 class ScoreActivity : ComponentActivity() {

@@ -1,6 +1,6 @@
-package EasyVocab.activity
+package easyvocab.activity
 
-import EasyVocab.storage.QuestionSerieStorage
+import easyvocab.storage.QuestionSerieStorage
 import android.content.Intent
 import android.os.Bundle
 import android.view.GestureDetector

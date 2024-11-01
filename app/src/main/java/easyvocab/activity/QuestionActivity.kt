@@ -1,7 +1,6 @@
-package EasyVocab.activity
+package easyvocab.activity
 
-import EasyVocab.storage.QuestionSerieStorage
-import android.annotation.SuppressLint
+import easyvocab.storage.QuestionSerieStorage
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -10,10 +9,6 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.ComponentActivity
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.easyvocab.R
 
 class QuestionActivity : ComponentActivity() {

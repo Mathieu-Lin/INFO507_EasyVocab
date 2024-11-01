@@ -1,8 +1,8 @@
-package EasyVocab.storage
+package easyvocab.storage
 
 import android.content.Context
-import EasyVocab.model.Question
-import EasyVocab.model.QuestionSerie
+import easyvocab.model.Question
+import easyvocab.model.QuestionSerie
 import org.json.JSONArray
 import org.json.JSONObject
 

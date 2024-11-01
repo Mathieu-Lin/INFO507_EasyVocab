@@ -1,9 +1,9 @@
-package EasyVocab.storage
+package easyvocab.storage
 
-import EasyVocab.model.Question
-import EasyVocab.model.VocabEN
+import easyvocab.model.VocabEN
 import android.content.Context
 import org.json.JSONObject
+
 
 class VocabENJSONFileStorage(context: Context): JSONFileStorage<VocabEN>(context, "vocabEN") {
 
@@ -22,12 +22,4 @@ class VocabENJSONFileStorage(context: Context): JSONFileStorage<VocabEN>(context
             json.getString(VocabEN.VALUE),
         )
     }
-
-    private fun getVocabEN(json: JSONObject): VocabEN {
-        return VocabEN(
-            json.getInt(VocabEN.ID),
-            json.getString(VocabEN.VALUE)
-        )
-    }
-
 }

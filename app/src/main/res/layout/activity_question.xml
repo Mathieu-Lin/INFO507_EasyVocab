@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="EasyVocab.activity.QuestionActivity">
+    tools:context="easyvocab.activity.QuestionActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package EasyVocab.storage
+package easyvocab.storage
 
 interface Storage<T> {
     fun insert(obj: T): Int

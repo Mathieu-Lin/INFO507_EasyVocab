@@ -1,8 +1,8 @@
-package EasyVocab.activity
+package easyvocab.activity
 
-import EasyVocab.adapter.VocabENAdapter
-import EasyVocab.request.VocabENRequest
-import EasyVocab.storage.VocabENStorage
+import easyvocab.adapter.ENDictionaryAdapter
+import easyvocab.request.VocabENRequest
+import easyvocab.storage.VocabENStorage
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -36,9 +36,9 @@ class ENDictionaryActivity : Updatable, AppCompatActivity() {
         returnButton = findViewById(R.id.button_return_vocab)
 
         list = findViewById(R.id.VocabEN_list)
-        list.adapter = object : VocabENAdapter(applicationContext) {
+        list.adapter = object : ENDictionaryAdapter(applicationContext) {
             override fun onClickListener(view: View) {
-                var intent = Intent(applicationContext, VocabActivity::class.java).apply {
+                val intent = Intent(applicationContext, VocabActivity::class.java).apply {
                     putExtra(EXTRA_VOCAB, view.tag as Int)
                 }
                 startActivity(intent)
@@ -49,6 +49,7 @@ class ENDictionaryActivity : Updatable, AppCompatActivity() {
                 return true
             }
         }
+
 
         refresh = findViewById(R.id.VocabEN_refresh)
         findViewById<SwipeRefreshLayout>(R.id.VocabEN_refresh).setOnRefreshListener {

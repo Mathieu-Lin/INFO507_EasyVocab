@@ -1,4 +1,4 @@
-package EasyVocab.request
+package easyvocab.request
 
 import android.widget.Toast
 import android.content.Context
@@ -7,10 +7,12 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONArray
 
-import EasyVocab.activity.Updatable
-import EasyVocab.model.VocabEN
+import easyvocab.activity.Updatable
+import easyvocab.model.VocabEN
 import com.example.easyvocab.R
-import EasyVocab.storage.VocabENStorage
+import easyvocab.storage.VocabENStorage
+
+// VocabENRequest.kt
 
 class VocabENRequest(private val context: Context, updatable: Updatable) {
     init {

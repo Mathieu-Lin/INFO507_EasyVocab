@@ -1,6 +1,6 @@
-package EasyVocab.adapter
+package easyvocab.adapter
 
-import EasyVocab.storage.VocabENStorage
+import easyvocab.storage.VocabENStorage
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -9,15 +9,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.easyvocab.R
 
-abstract class VocabENAdapter(private val context: Context): RecyclerView.Adapter<VocabENAdapter.VocabENHolder>() {
-    class VocabENHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+abstract class ENDictionaryAdapter(private val context: Context): RecyclerView.Adapter<ENDictionaryAdapter.ENDictionaryHolder>() {
+    class ENDictionaryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val value: TextView = itemView.findViewById(R.id.VocabEN_value)
     }
 
     abstract fun onClickListener(view: View)
     abstract fun onLongClickListener(view: View): Boolean
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VocabENHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ENDictionaryHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_vocab, parent, false)
 
         view.setOnClickListener {
@@ -26,10 +26,10 @@ abstract class VocabENAdapter(private val context: Context): RecyclerView.Adapte
         view.setOnLongClickListener {
             onLongClickListener(view)
         }
-        return VocabENHolder(view)
+        return ENDictionaryHolder(view)
     }
 
-    override fun onBindViewHolder(holder: VocabENHolder, position: Int) {
+    override fun onBindViewHolder(holder: ENDictionaryHolder, position: Int) {
         val vocabEN = VocabENStorage.get(context).findAll()[position]
         holder.itemView.tag = vocabEN.id
         holder.value.text = vocabEN.value

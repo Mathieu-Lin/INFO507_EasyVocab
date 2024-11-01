@@ -14,13 +14,13 @@
         android:theme="@style/Theme.EasyVocab"
         tools:targetApi="31">
         <activity
-            android:name="EasyVocab.activity.ScoreActivity"
+            android:name="easyvocab.activity.ScoreActivity"
             android:exported="false" />
         <activity
-            android:name="EasyVocab.activity.QuestionActivity"
+            android:name="easyvocab.activity.QuestionActivity"
             android:exported="false" />
         <activity
-            android:name="EasyVocab.activity.MainActivity"
+            android:name="easyvocab.activity.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.EasyVocab">
@@ -30,13 +30,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="EasyVocab.activity.ENDifficultyActivity"
+            android:name="easyvocab.activity.ENDifficultyActivity"
             android:exported="false" />
         <activity
-            android:name="EasyVocab.activity.ENDictionaryActivity"
+            android:name="easyvocab.activity.ENDictionaryActivity"
             android:exported="false" />
         <activity
-            android:name="EasyVocab.activity.VocabActivity"
+            android:name="easyvocab.activity.VocabActivity"
             android:exported="false" />
     </application>
 

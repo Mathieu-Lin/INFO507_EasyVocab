@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="EasyVocab.activity.ENDictionaryActivity">
+    tools:context="easyvocab.activity.ENDictionaryActivity">
 
 
     <!-- Top layout section with title and search bar -->

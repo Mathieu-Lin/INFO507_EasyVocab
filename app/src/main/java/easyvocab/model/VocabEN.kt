@@ -1,4 +1,4 @@
-package EasyVocab.model
+package easyvocab.model
 
 class VocabEN(val id: Int, val value: String) {
     companion object {
