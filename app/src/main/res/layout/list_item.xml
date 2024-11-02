@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/definitionLayout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border_background"
+    android:padding="8dp">
+
+        <TextView
+            android:id="@+id/wordText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Word here" />
+
+        <TextView
+            android:id="@+id/definitionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Definition here" />
+
+        <TextView
+            android:id="@+id/exampleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#888888"
+            android:text="Example here" />
+
+</LinearLayout>

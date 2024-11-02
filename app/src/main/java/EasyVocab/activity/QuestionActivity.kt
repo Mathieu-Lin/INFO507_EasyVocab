@@ -1,30 +1,39 @@
 package EasyVocab.activity
 
 import EasyVocab.storage.QuestionSerieStorage
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.GestureDetector
+import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.activity.ComponentActivity
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.easyvocab.R
 
-class QuestionActivity : ComponentActivity() {
+class QuestionActivity : AppCompatActivity() {
+    private lateinit var gestureDetector: GestureDetector
     companion object {
         const val DIFFICULTY = "DIFFICULTY"
         const val QUESTION = "QUESTION"
         const val SCORE = "SCORE"
+        private const val SWIPE_THRESHOLD = 100
+        private const val SWIPE_VELOCITY_THRESHOLD = 100
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
+
+        gestureDetector = GestureDetector(this, GestureListener())
+
+        val backArrow: ImageView = findViewById(R.id.backArrow)
+        backArrow.setOnClickListener {
+            back()
+        }
+
         val idDifficulty = intent.getIntExtra(QuestionActivity.DIFFICULTY, 1)
         val idQuestion = intent.getIntExtra(QuestionActivity.QUESTION, 0)
         val serie = QuestionSerieStorage.get(applicationContext).find(idDifficulty)
@@ -62,9 +71,11 @@ class QuestionActivity : ComponentActivity() {
             toNextQuestion(idDifficulty, idQuestion, score)
         }
 
-
-
-
+        val openDictionaryButton: Button = findViewById(R.id.openDictionaryButton)
+        openDictionaryButton.setOnClickListener {
+            val intent = Intent(this, DictionaryActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun answer(id:Int?, option1:Button, option2:Button, option3:Button) {
@@ -110,5 +121,32 @@ class QuestionActivity : ComponentActivity() {
         nextQuestion.setOnClickListener {
             startActivity(intent)
         }
+    }
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        return gestureDetector.onTouchEvent(event) || super.onTouchEvent(event)
+    }
+
+    private inner class GestureListener : GestureDetector.SimpleOnGestureListener() {
+        override fun onFling(
+            e1: MotionEvent?,
+            e2: MotionEvent,
+            velocityX: Float,
+            velocityY: Float
+        ): Boolean {
+            if (e1 != null) {
+                if (e1.x - e2.x > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
+                    back()
+                    return true
+                }
+            }
+            return false
+        }
+    }
+
+    private fun back() {
+        val intent = Intent(this, ENDifficultyActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
+        finish()
     }
 }

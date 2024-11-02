@@ -6,10 +6,10 @@ import EasyVocab.storage.QuestionSerieStorage
 import android.content.Intent
 import android.os.Bundle
 import android.widget.LinearLayout
-import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.example.easyvocab.R
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -17,6 +17,7 @@ class MainActivity : ComponentActivity() {
         if (QuestionSerieStorage.get(applicationContext).findAll().isEmpty()) {
             QuestionSerieStorage.get(applicationContext).insert(creerQuestionsFaciles())
             QuestionSerieStorage.get(applicationContext).insert(creerQuestionsMoyennes())
+            QuestionSerieStorage.get(applicationContext).insert(creerQuestionsDifficiles())
         }
 
         var screen = findViewById<LinearLayout>(R.id.mainScreen)
@@ -53,5 +54,20 @@ class MainActivity : ComponentActivity() {
         val question10 = Question(9, "Complete la phrase 'I speak ...'", "Italy", "Italian", "Pastas", 2)
         val questions = listOf<Question>(question1, question2, question3, question4, question5, question6, question7, question8, question9, question10)
         return QuestionSerie(2, questions, 0)
+    }
+
+    private fun creerQuestionsDifficiles(): QuestionSerie {
+        val question1 = Question(0, "Comment dit-on 'Proche de' en anglais ?", "Next to", "Nearby", "Under", 2)
+        val question2 = Question(1, "Comment dit-on 'Toilette' en anglais ?", "Bathroom", "Bedroom", "Restroom", 3)
+        val question3 = Question(2, "Comment dit-on 'Jardin' en anglais ?", "Garden", "Hill", "Yard", 1)
+        val question4 = Question(4, "Comment dit-on 'Centre-ville' en anglais ?", "Downtown", "Center-city", "Middle-city", 1)
+        val question5 = Question(4, "Que veut dire 'Knife' ?", "Cuillere", "Fourchette", "Couteau", 3)
+        val question6 = Question(5, "Que veut dire 'Under' ?", "Dessus", "Dessous", "Entre", 2)
+        val question7 = Question(6, "Que veut dire 'Computer' ?", "Ordinateur", "Comparer", "Comprendre", 1)
+        val question8 = Question(7, "Que veut dire 'Chair' ?", "Cher", "Chaise", "Char", 2)
+        val question9 = Question(8, "Complete la phrase 'My name ... Jean'", "Be", "Have", "Is", 3)
+        val question10 = Question(9, "Complete la phrase 'I speak ...'", "Italy", "Italian", "Pastas", 2)
+        val questions = listOf<Question>(question1, question2, question3, question4, question5, question6, question7, question8, question9, question10)
+        return QuestionSerie(3, questions, 0)
     }
 }

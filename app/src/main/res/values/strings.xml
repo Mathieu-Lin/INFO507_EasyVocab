@@ -13,4 +13,7 @@
     <string name="touch_to_continue">Touchez pour continuer</string>
     <string name="your_score">Ton score :</string>
     <string name="new_best">Nouveau record !</string>
+    <string name="open_dictionary">Ouvrir Dictionnaire</string>
+    <string name="enter_a_word">Entrez un mot (en anglais)</string>
+    <string name="search">Chercher</string>
 </resources>

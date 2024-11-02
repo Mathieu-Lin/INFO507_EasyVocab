@@ -5,14 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.ComponentActivity
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.easyvocab.R
 
-class ENDifficultyActivity : ComponentActivity() {
+class ENDifficultyActivity : AppCompatActivity() {
     companion object {
         const val DIFFICULTY = "DIFFICULTY"
     }
@@ -22,6 +18,12 @@ class ENDifficultyActivity : ComponentActivity() {
 
         setButtons()
         setScores()
+
+        val openDictionaryButton: Button = findViewById(R.id.openDictionaryButton)
+        openDictionaryButton.setOnClickListener {
+            val intent = Intent(this, DictionaryActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setButtons() {
@@ -65,7 +67,7 @@ class ENDifficultyActivity : ComponentActivity() {
         scoreHard.text = "Best : $score"
     }
 
-    fun getScore(id: Int) : Int? {
+    private fun getScore(id: Int) : Int? {
         return QuestionSerieStorage.get(applicationContext).find(id)?.bestScore
     }
 }

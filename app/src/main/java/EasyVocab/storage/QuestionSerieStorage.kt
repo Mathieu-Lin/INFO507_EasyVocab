@@ -1,6 +1,5 @@
 package EasyVocab.storage
 
-import EasyVocab.model.Question
 import EasyVocab.model.QuestionSerie
 import android.content.Context
 
