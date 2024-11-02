@@ -35,7 +35,7 @@ IDE :
 Ce projet est réalisé par deux étudiants en L3 Informatique :
 
 - Mathieu LIN
-- Benjamin CLINT
+- Benjamin CLIN
 
 ### Maquette avant la construction du projet
 
