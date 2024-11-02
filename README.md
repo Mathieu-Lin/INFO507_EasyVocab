@@ -30,6 +30,13 @@ IDE :
 - Android Studio (https://developer.android.com/studio?hl=fr)
 - Visual Studio Code (https://code.visualstudio.com/)
 
+## Compléments
+
+Il y a deux branches sur git dont
+
+- main (principale)
+- benj (alternative)
+
 ## Collaboration
 
 Ce projet est réalisé par deux étudiants en L3 Informatique :
