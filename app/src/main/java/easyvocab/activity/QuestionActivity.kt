@@ -4,6 +4,8 @@ import easyvocab.storage.QuestionSerieStorage
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.GestureDetector
+import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
@@ -17,14 +19,18 @@ class QuestionActivity : ComponentActivity() {
         const val QUESTION = "QUESTION"
         const val SCORE = "SCORE"
     }
+
+    private lateinit var gestureDetector: GestureDetector
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
-        val idDifficulty = intent.getIntExtra(QuestionActivity.DIFFICULTY, 1)
-        val idQuestion = intent.getIntExtra(QuestionActivity.QUESTION, 0)
+
+        val idDifficulty = intent.getIntExtra(DIFFICULTY, 1)
+        val idQuestion = intent.getIntExtra(QUESTION, 0)
         val serie = QuestionSerieStorage.get(applicationContext).find(idDifficulty)
         val question = serie?.questions?.get(idQuestion)
-        var score = intent.getIntExtra(QuestionActivity.SCORE, 0)
+        var score = intent.getIntExtra(SCORE, 0)
 
         findViewById<TextView>(R.id.question).text = question?.question
 
@@ -57,12 +63,35 @@ class QuestionActivity : ComponentActivity() {
             toNextQuestion(idDifficulty, idQuestion, score)
         }
 
-
-
-
+        // Initialisation du GestureDetector
+        gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
+            override fun onFling(
+                e1: MotionEvent?,
+                e2: MotionEvent,
+                velocityX: Float,
+                velocityY: Float
+            ): Boolean {
+                // Vérifiez si e1 est non nul
+                if (e1 != null) {
+                    val deltaX = e2.x - e1.x
+                    val deltaY = e2.y - e1.y
+                    // Détecte un swipe vers le haut
+                    if (Math.abs(deltaY) > Math.abs(deltaX) && deltaY < -100) { // Swipe vers le haut
+                        goToDictionaryActivity()
+                        return true
+                    }
+                }
+                return false
+            }
+        })
     }
 
-    private fun answer(id:Int?, option1:Button, option2:Button, option3:Button) {
+    // Surcharge de onTouchEvent pour passer les événements au GestureDetector
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        return gestureDetector.onTouchEvent(event!!)|| super.onTouchEvent(event)
+    }
+
+    private fun answer(id: Int?, option1: Button, option2: Button, option3: Button) {
         when (id) {
             1 -> {
                 option1.setBackgroundColor(Color.GREEN)
@@ -76,23 +105,23 @@ class QuestionActivity : ComponentActivity() {
         }
     }
 
-    private fun getNewScore(id:Int?, selected : Int, score : Int) : Int {
+    private fun getNewScore(id: Int?, selected: Int, score: Int): Int {
         return if (id == selected) {
-            score+1
+            score + 1
         } else {
             score
         }
     }
 
-    private fun toNextQuestion(idDifficulty: Int, idQuestion:Int, score : Int) {
+    private fun toNextQuestion(idDifficulty: Int, idQuestion: Int, score: Int) {
         val nextQuestion = findViewById<LinearLayout>(R.id.nextQuestionLayout)
         nextQuestion.visibility = View.VISIBLE
-        val intent : Intent
+        val intent: Intent
         if (idQuestion < 9) {
             intent = Intent(applicationContext, QuestionActivity::class.java)
             intent.apply {
                 putExtra(DIFFICULTY, idDifficulty)
-                putExtra(QUESTION, idQuestion+1)
+                putExtra(QUESTION, idQuestion + 1)
                 putExtra(SCORE, score)
             }
         } else {
@@ -105,5 +134,12 @@ class QuestionActivity : ComponentActivity() {
         nextQuestion.setOnClickListener {
             startActivity(intent)
         }
+    }
+
+    private fun goToDictionaryActivity() {
+        val intent = Intent(applicationContext, ENDictionaryActivity::class.java)
+        startActivity(intent)
+        // Optionnel : terminer l'activité actuelle si vous ne voulez pas revenir ici
+        // finish()
     }
 }

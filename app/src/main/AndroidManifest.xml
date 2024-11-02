@@ -40,6 +40,7 @@
             android:name="easyvocab.activity.VocabActivity"
             android:exported="true"
             android:parentActivityName="easyvocab.activity.ENDictionaryActivity"/>
+
     </application>
 
 </manifest>

@@ -14,6 +14,8 @@ abstract class ENDictionaryAdapter(private val context: Context): RecyclerView.A
         val value: TextView = itemView.findViewById(R.id.VocabEN_value)
     }
 
+
+
     abstract fun onClickListener(view: View)
     abstract fun onLongClickListener(view: View): Boolean
 

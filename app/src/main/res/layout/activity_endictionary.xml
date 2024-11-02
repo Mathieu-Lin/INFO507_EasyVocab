@@ -29,7 +29,7 @@
                 android:backgroundTint="@color/white" />
 
             <TextView
-                android:text="@string/app_name"
+                android:text="Dictionnaire"
                 android:textSize="25sp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -84,9 +84,8 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/VocabEN_refresh"
         android:layout_width="match_parent"
-        android:layout_height="580dp"
-        android:layout_gravity="bottom"
-        android:layout_marginTop="8dp">
+        android:layout_height="725dp"
+        android:layout_gravity="bottom">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/VocabEN_list"
