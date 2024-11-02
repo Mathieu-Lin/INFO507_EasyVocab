@@ -28,7 +28,7 @@ Ce projet est réalisé par deux étudiants en L3 Informatique :
 
 ### Maquette après la construction
 
-## Maquette avancee (prévision)
+## Maquette finale
 
 ![Maquette Finale](./Maquettes/Maquette_finale.png)
 
